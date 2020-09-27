@@ -1,8 +1,8 @@
 # API Marvel
 
-> API de catalogo dos personagens da marvel.
+API de catalogo dos personagens da marvel.
 
-    Endpoints implementados:
+Endpoints implementados:
 
         * `/v1/public/characters`
         * `/v1/public/characters/{characterId}`
