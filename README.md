@@ -14,10 +14,6 @@ Criar e popular o banco
 mongorestore --host="localhost" --db=marvel --port=27017 "~/db/dump/marvel"
 ```
 
-```bash
-mongodump --host="localhost" --db=marvel --port=27017 --out="~/db/dump/marvel"
-```
-
 ### Configuração
 
 ```bash
