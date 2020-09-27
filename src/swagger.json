@@ -10,7 +10,7 @@
     }
   },
   "paths": {
-    "/baixar-dados": {
+    "/v1/public/characters": {
       "get": {
         "tags": ["Users"],
         "summary": "Get All Users in system",
@@ -42,32 +42,145 @@
         }
       }
     },
-    "/salvar-dados": {
-      "post": {
+    "/v1/public/characters/{characterId}": {
+      "get": {
         "tags": ["Users"],
-        "summary": "Save All Users in system",
-        "requestBody": {
-          "description": "Users Object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/Users"
-              }
-            }
-          }
-        },
+        "summary": "Get All Users in system",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/definitions/Users"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
                   "properties": {
-                    "success": {
-                      "type": "boolean"
+                    "msgError": {
+                      "type": "string"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterId}/comics": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get All Users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Users"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "msgError": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterId}/events": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get All Users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Users"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "msgError": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterId}/series": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get All Users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Users"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "msgError": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/public/characters/{characterId}/stories": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get All Users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Users"
                 }
               }
             }
