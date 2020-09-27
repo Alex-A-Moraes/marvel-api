@@ -5,10 +5,6 @@ import { Filter, FilterRegex } from "../../../util";
 interface Request {
   charactersId?: number;
   name?: string;
-  comics?: string;
-  series?: string;
-  events?: string;
-  stories?: string;
   limit?: number;
   offset?: number;
 }
@@ -21,14 +17,31 @@ interface Response {
   results: string[];
 }
 
+const ResponseCharactersEvents = (param: any) => {
+  return {
+    id: Number(param.id),
+    title: param.title,
+    description: param.description,
+    resourceURI: param.resourceURI,
+    urls: param.urls,
+    modified: param.modified,
+    start: param.start,
+    end: param.end,
+    thumbnail: param.thumbnail,
+    creators: param.creators,
+    characters: param.characters,
+    stories: param.stories,
+    comics: param.comics,
+    series: param.series,
+    next: param.next,
+    previous: param.previous,
+  };
+};
+
 class SearchCharactersEventsServices {
   async execute({
     charactersId,
     name,
-    comics,
-    series,
-    events,
-    stories,
     limit,
     offset,
   }: Request): Promise<Response> {
@@ -42,12 +55,17 @@ class SearchCharactersEventsServices {
       .limit(limit)
       .skip(offset);
 
+    const results = charactersResult.events.reduce((prev: any, curr: any) => {
+      prev.push(ResponseCharactersEvents(curr));
+      return prev;
+    }, []);
+
     return {
       offset,
       limit,
       total: charactersResult.events.length,
       count: charactersResult.events.length,
-      results: charactersResult.events,
+      results,
     };
   }
 }

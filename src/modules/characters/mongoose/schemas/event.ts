@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const EventsSchema = new Schema({
-  id: String,
+  id: Number,
   title: String,
   description: String,
   resourceURI: String,
@@ -10,11 +10,11 @@ const EventsSchema = new Schema({
   start: String,
   end: String,
   thumbnail: Array,
-  comics: Array,
-  stories: Array,
-  series: Array,
-  characters: Array,
-  creators: Array,
+  comics: Object,
+  stories: Object,
+  series: Object,
+  characters: Object,
+  creators: Object,
   next: Object,
   previous: Object,
 });

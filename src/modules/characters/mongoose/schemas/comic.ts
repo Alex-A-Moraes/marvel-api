@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const ComicSchema = new Schema({
-  id: String,
+  id: Number,
   digitalId: String,
   title: String,
   issueNumber: String,
@@ -26,10 +26,10 @@ const ComicSchema = new Schema({
   prices: Array,
   thumbnail: Array,
   images: Array,
-  creators: Array,
-  characters: Array,
-  stories: Array,
-  events: Array,
+  creators: Object,
+  characters: Object,
+  stories: Object,
+  events: Object,
 });
 
 export default mongoose.model("comics", ComicSchema);

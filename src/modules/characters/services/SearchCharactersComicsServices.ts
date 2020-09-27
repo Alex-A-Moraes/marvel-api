@@ -5,10 +5,6 @@ import { Filter, FilterRegex } from "../../../util";
 interface Request {
   charactersId?: number;
   name?: string;
-  comics?: string;
-  series?: string;
-  events?: string;
-  stories?: string;
   limit?: number;
   offset?: number;
 }
@@ -21,14 +17,44 @@ interface Response {
   results: string[];
 }
 
+const ResponseCharactersComics = (param: any) => {
+  return {
+    id: Number(param.id),
+    digitalId: param.digitalId,
+    title: param.title,
+    issueNumber: param.issueNumber,
+    variantDescription: param.variantDescription,
+    description: param.description,
+    modified: param.modified,
+    isbn: param.isbn,
+    upc: param.upc,
+    diamondCode: param.diamondCode,
+    ean: param.ean,
+    issn: param.issn,
+    format: param.format,
+    pageCount: param.pageCount,
+    textObjects: param.textObjects,
+    resourceURI: param.resourceURI,
+    urls: param.urls,
+    series: param.series,
+    variants: param.variants,
+    collections: param.collections,
+    collectedIssues: param.collectedIssues,
+    dates: param.dates,
+    prices: param.prices,
+    thumbnail: param.thumbnail,
+    images: param.images,
+    creators: param.creators,
+    characters: param.characters,
+    stories: param.stories,
+    events: param.events,
+  };
+};
+
 class SearchCharactersComicsServices {
   async execute({
     charactersId,
     name,
-    comics,
-    series,
-    events,
-    stories,
     limit,
     offset,
   }: Request): Promise<Response> {
@@ -42,12 +68,17 @@ class SearchCharactersComicsServices {
       .limit(limit)
       .skip(offset);
 
+    const results = charactersResult.comics.reduce((prev: any, curr: any) => {
+      prev.push(ResponseCharactersComics(curr));
+      return prev;
+    }, []);
+
     return {
       offset,
       limit,
       total: charactersResult.comics.length,
       count: charactersResult.comics.length,
-      results: charactersResult.comics,
+      results,
     };
   }
 }

@@ -1,4 +1,8 @@
 import Characters, { CharactersDocument } from "../mongoose/schemas/character";
+import Comic from "../mongoose/schemas/comic";
+import Story from "../mongoose/schemas/storie";
+import Event from "../mongoose/schemas/event";
+import Serie from "../mongoose/schemas/serie";
 import "../mongoose/schemas/storie";
 import "../mongoose/schemas/comic";
 import "../mongoose/schemas/serie";
@@ -93,6 +97,24 @@ class SearchCharactersService {
     const filtersArray = [];
     filtersArray.push(Filter("id", charactersId));
     filtersArray.push(FilterRegex("name", name));
+
+    if (comics) {
+      const comicsDto = await Comic.findOne({ id: Number(comics) });
+      filtersArray.push(Filter("comics", comicsDto._id));
+    }
+    if (series) {
+      const seriesDto = await Serie.findOne({ id: Number(series) });
+      filtersArray.push(Filter("series", seriesDto._id));
+    }
+    if (events) {
+      const eventsDto = await Event.findOne({ id: Number(events) });
+      filtersArray.push(Filter("events", eventsDto._id));
+    }
+    if (stories) {
+      const storiesDto = await Story.findOne({ id: Number(stories) });
+      filtersArray.push(Filter("stories", storiesDto._id));
+    }
+
     const filter = { $and: filtersArray };
 
     const charactersResult = await Characters.find(filter)

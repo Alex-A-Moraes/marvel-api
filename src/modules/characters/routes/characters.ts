@@ -11,15 +11,15 @@ charactersRouter.get(
 );
 charactersRouter.get(
   "/:charactersId/events",
-  CharactersController.getCharacters
+  CharactersController.getCharactersEvents
 );
 charactersRouter.get(
   "/:charactersId/series",
-  CharactersController.getCharacters
+  CharactersController.getCharactersSeries
 );
 charactersRouter.get(
   "/:charactersId/stories",
-  CharactersController.getCharacters
+  CharactersController.getCharactersStories
 );
 
 export default charactersRouter;
