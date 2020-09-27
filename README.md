@@ -1,15 +1,15 @@
 # API Marvel
 
-> API de catalogo dos personagens da marvel.
+API de catalogo dos personagens da marvel.
 
-    Endpoints implementados:
+Endpoints implementados:
 
-        * `/v1/public/characters`
-        * `/v1/public/characters/{characterId}`
-        * `/v1/public/characters/{characterId}/comics`
-        * `/v1/public/characters/{characterId}/events`
-        * `/v1/public/characters/{characterId}/series`
-        * `/v1/public/characters/{characterId}/stories`
+        * /v1/public/characters
+        * /v1/public/characters/{characterId}
+        * /v1/public/characters/{characterId}/comics
+        * /v1/public/characters/{characterId}/events
+        * /v1/public/characters/{characterId}/series
+        * /v1/public/characters/{characterId}/stories
 
 ### Banco de dados
 
