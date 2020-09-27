@@ -1,14 +1,16 @@
 module.exports = {
-  preset: "ts-jest",
-  globals: {
-    "ts-jest": {
-      diagnostics: false,
+    globals: {
+        'ts-jest': {
+            diagnostics: false,
+        },
     },
-  },
-  moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
-  testEnvironment: "node",
-  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
-  transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
-  },
+    moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
+    clearMocks: true,
+    preset: 'ts-jest',
+    projects: ['<rootDir>/jest.config.js'],
+    testEnvironment: 'node',
+    testMatch: ['**/*.spec.ts', '**/*.spec.tsx'],
+    transform: {
+        '^.+\\.(ts|tsx)$': 'ts-jest',
+    },
 };

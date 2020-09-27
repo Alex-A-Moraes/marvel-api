@@ -1,0 +1,35 @@
+import mongoose, { Schema } from "mongoose";
+
+const ComicSchema = new Schema({
+  id: String,
+  digitalId: String,
+  title: String,
+  issueNumber: String,
+  variantDescription: String,
+  description: String,
+  modified: String,
+  isbn: String,
+  upc: String,
+  diamondCode: String,
+  ean: String,
+  issn: String,
+  format: String,
+  pageCount: Number,
+  textObjects: Array,
+  resourceURI: String,
+  urls: Array,
+  series: Object,
+  variants: Array,
+  collections: Array,
+  collectedIssues: Array,
+  dates: Array,
+  prices: Array,
+  thumbnail: Array,
+  images: Array,
+  creators: Array,
+  characters: Array,
+  stories: Array,
+  events: Array,
+});
+
+export default mongoose.model("comics", ComicSchema);
