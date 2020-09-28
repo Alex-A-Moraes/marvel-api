@@ -9,7 +9,7 @@ import "../mongoose/schemas/comic";
 import "../mongoose/schemas/serie";
 import "../mongoose/schemas/event";
 
-describe.only("Add Characters", () => {
+only("Add Characters", () => {
   beforeAll(async () => {
     await connect(`mongodb://localhost:27017/marvel`, {
       useNewUrlParser: true,
