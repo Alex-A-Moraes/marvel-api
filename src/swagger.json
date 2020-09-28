@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "API de Bucar e Salvar Dados",
-    "description": "API de estilo CRUD em NodeJs usando TypeScript e MySQL",
+    "title": "API de catalogo dos personagens da marvel.",
+    "description": "API em NodeJs usando TypeScript e MongoDB",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -12,15 +12,81 @@
   "paths": {
     "/v1/public/characters": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get All Users in system",
+        "tags": ["Characters"],
+        "summary": "Get All Characters",
+        "parameters": [
+          {
+            "name": "charactersId",
+            "in": "path",
+            "description": "id characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "comics",
+            "in": "path",
+            "description": "id comics characters",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "series",
+            "in": "path",
+            "description": "id series characters",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "events",
+            "in": "path",
+            "description": "id events characters",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "stories",
+            "in": "path",
+            "description": "id stories characters",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "The requested result limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "description": "The requested offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/Users"
+                  "$ref": "#/definitions/CharacterDataWrapper"
                 }
               }
             }
@@ -44,15 +110,49 @@
     },
     "/v1/public/characters/{characterId}": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get All Users in system",
+        "tags": ["Characters"],
+        "summary": "Get All Characters in system",
+        "parameters": [
+          {
+            "name": "charactersId",
+            "in": "path",
+            "description": "id characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "The requested result limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "description": "The requested offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/Users"
+                  "$ref": "#/definitions/CharacterDataWrapper"
                 }
               }
             }
@@ -76,15 +176,49 @@
     },
     "/v1/public/characters/{characterId}/comics": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get All Users in system",
+        "tags": ["Characters"],
+        "summary": "Get All Characters in system",
+        "parameters": [
+          {
+            "name": "charactersId",
+            "in": "path",
+            "description": "id characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "The requested result limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "description": "The requested offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/Users"
+                  "$ref": "#/definitions/CharacterDataWrapper"
                 }
               }
             }
@@ -108,15 +242,49 @@
     },
     "/v1/public/characters/{characterId}/events": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get All Users in system",
+        "tags": ["Characters"],
+        "summary": "Get All Characters in system",
+        "parameters": [
+          {
+            "name": "charactersId",
+            "in": "path",
+            "description": "id characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "The requested result limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "description": "The requested offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/Users"
+                  "$ref": "#/definitions/CharacterDataWrapper"
                 }
               }
             }
@@ -140,15 +308,49 @@
     },
     "/v1/public/characters/{characterId}/series": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get All Users in system",
+        "tags": ["Characters"],
+        "summary": "Get All Characters in system",
+        "parameters": [
+          {
+            "name": "charactersId",
+            "in": "path",
+            "description": "id characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "The requested result limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "description": "The requested offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/Users"
+                  "$ref": "#/definitions/CharacterDataWrapper"
                 }
               }
             }
@@ -172,15 +374,49 @@
     },
     "/v1/public/characters/{characterId}/stories": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get All Users in system",
+        "tags": ["Characters"],
+        "summary": "Get All Characters in system",
+        "parameters": [
+          {
+            "name": "charactersId",
+            "in": "path",
+            "description": "id characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name characters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "The requested result limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "description": "The requested offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/Users"
+                  "$ref": "#/definitions/CharacterDataWrapper"
                 }
               }
             }
@@ -204,7 +440,7 @@
     }
   },
   "definitions": {
-    "User": {
+    "Characters": {
       "type": "object",
       "properties": {
         "id": {
@@ -213,66 +449,132 @@
         "name": {
           "type": "string"
         },
-        "username": {
-          "type": "boolean"
-        },
-        "email": {
+        "description": {
           "type": "string"
         },
-        "address": {
+        "modified": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "resourceURI": {
+          "type": "string"
+        },
+        "comics": {
           "type": "object",
           "properties": {
-            "street": {
+            "available": {
+              "type": "integer"
+            },
+            "collectionURI": {
               "type": "string"
             },
-            "suite": {
+            "items": {
               "type": "string"
-            },
-            "city": {
-              "type": "string"
-            },
-            "zipcode": {
-              "type": "string"
-            },
-            "geo": {
-              "type": "object",
-              "properties": {
-                "lat": {
-                  "type": "string"
-                },
-                "lng": {
-                  "type": "string"
-                }
-              }
             }
           }
         },
-        "phone": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
-        },
-        "company": {
+        "series": {
           "type": "object",
           "properties": {
-            "name": {
+            "available": {
+              "type": "integer"
+            },
+            "collectionURI": {
               "type": "string"
             },
-            "catchPhrase": {
-              "type": "string"
-            },
-            "bs": {
+            "items": {
               "type": "string"
             }
+          }
+        },
+        "stories": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "integer"
+            },
+            "collectionURI": {
+              "type": "string"
+            },
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "events": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "integer"
+            },
+            "collectionURI": {
+              "type": "string"
+            },
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "urls": {
+          "type": "string"
+        }
+      }
+    },
+    "CharactersList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Characters"
+      }
+    },
+    "CharacterDataWrapper": {
+      "type": "object",
+      "properties": {
+        "code ": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "copyright": {
+          "type": "string"
+        },
+        "attributionText": {
+          "type": "string"
+        },
+        "attributionHTML": {
+          "type": "object"
+        },
+        "data": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/CharacterDataContainer"
           }
         }
       }
     },
-    "Users": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/User"
+    "CharacterDataContainer": {
+      "type": "object",
+      "properties": {
+        "offset  ": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "string",
+          "items": {
+            "$ref": "#/definitions/CharactersList"
+          }
+        }
       }
     }
   }
